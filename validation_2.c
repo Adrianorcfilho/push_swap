@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 21:19:08 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/27 21:20:16 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:59:30 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,17 @@ void	free_args(char **args)
 	while (args && args[i])
 		free(args[i++]);
 	free(args);
+}
+void	free_stack(t_node **stack)
+{
+	t_node	*tmp;
+
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
 
 int	parse_arguments(t_node **stack, int argc, char **argv)
