@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/26 19:38:12 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/26 20:23:00 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:19:57 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,20 @@ int	is_int_range(char *str)
 
 int	has_duplicates(t_node *stack)
 {
-	t_node 
+	t_node	*current;
+	t_node	*checker;
+
+	current = stack;
+	while (current)
+	{
+		checker = current->next;
+		while (checker)
+		{
+			if (current->value == checker->value)
+				return (1);
+			checker = checker->next;
+		}
+		current = current->next;
+	}
+	return (0);
 }

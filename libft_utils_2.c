@@ -1,51 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   libft_utils_2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/27 21:39:51 by adrocha          ###   ########.fr       */
+/*   Created: 2025/07/27 21:11:48 by adrocha           #+#    #+#             */
+/*   Updated: 2025/07/27 21:46:01 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stack(t_node *stack)
+size_t	ft_strlen(const char *s)
 {
-	while (stack)
-	{
-		printf("%d\n", stack->value);
-		stack = stack->next;
-	}
+	int	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }
 
-void	free_stack(t_node *stack)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_node	*tmp;
+	size_t	i;
 
-	while (stack)
+	i = 0;
+	if (size != 0)
 	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
 	}
+	return (ft_strlen(src));
 }
 
-int	main(int argc, char **argv)
+char	*ft_strcpy(char *dest, char *src)
 {
-	t_node	*stack_a;
+	int	i;
 
-	stack_a = NULL;
-	if (argc < 2)
-		return (0);
-	if (!parse_arguments(&stack_a, argc, argv))
+	i = 0;
+	while (src[i] != '\0')
 	{
-		write(2, "Error\n", 6);
-		return (1);
+		dest[i] = src[i];
+		i++;
 	}
-	print_stack(stack_a);
-	free_stack(stack_a);
-	return (0);
+	dest[i] = '\0';
+	return (dest);
 }

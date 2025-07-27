@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/26 18:22:34 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/27 21:40:22 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include <limits.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
@@ -24,7 +25,6 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-// ===== PARSING =====
 int					parse_arguments(t_node **stack, int argc, char **argv);
 int					is_valid_number(char *str);
 int					is_int_range(char *str);
@@ -41,5 +41,12 @@ char				*ft_strjoin(const char *s1, const char *s2);
 char				**ft_split(const char *s, char c);
 int					ft_word_count(const char *s, char c);
 char				*ft_substr(const char *s, int start, int len);
+size_t				ft_strlcpy(char *dst, const char *src, size_t size);
+size_t				ft_strlen(const char *s);
+char				*ft_strcpy(char *dest, char *src);
+
+
+void	print_stack(t_node *stack);
+void	free_stack(t_node *stack);
 
 #endif
