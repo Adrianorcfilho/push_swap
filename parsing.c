@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/29 20:09:31 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/29 21:14:11 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	is_int_range(char *str)
 	c = ft_atol(str);
 	if (c >= INT_MIN && c <= INT_MAX)
 		return (1);
-	exit (free, 0); // arrumar o free;
+	free_error_exit(stack, args);
 }
 
 int	has_duplicates(t_node *stack)
@@ -52,7 +52,7 @@ int	has_duplicates(t_node *stack)
 		while (checker)
 		{
 			if (current->value == checker->value)
-				return (1);
+				free_error_exit(stack, args);
 			checker = checker->next;
 		}
 		current = current->next;
@@ -67,7 +67,7 @@ int	add_to_stack(t_node **stack, int value)
 
 	new = malloc(sizeof(t_node));
 	if (!new)
-		return (0);
+		free_error_exit();
 	new->value = value;
 	new->index = -1;
 	new->next = NULL;
@@ -85,27 +85,27 @@ int	add_to_stack(t_node **stack, int value)
 
 int	parse_arguments(t_node **stack, int argc, char **argv)
 {
-	char **args;
-	int i;
-
-	while ()
-	{
-		args = ft_split(argv, argc - 1);
-	}
+	char	**args;
+	int		i;
 
 	i = 0;
 	if (!args)
 		return (0);
 	while (args[i])
 	{
-		if (!is_valid_number(args[i]) || !is_int_range(args[i]))
-			return (free_args(args), 0);
-		if (!add_to_stack(stack, ft_atoi(args[i])))
-			return (free_args(args), 0);
+		args[i] = ft_split(argv[i], argc - 1);
+		if (!args[i])
+			free_error_exit(stack, args);
+				// corrigir e colocar variaveis corretas
+		is_valid_number(args[i])
+			free_error_exit(stack, args);
+		is_int_range(args[i])
+			free_error_exit(stack, args);
+		if (!add_to_stack(stack, ft_atol(args[i])))
+			;
 		i++;
 	}
 	if (has_duplicates(*stack))
-		return (free_args(args), 0);
 	free_args(args);
 	return (1);
 }
