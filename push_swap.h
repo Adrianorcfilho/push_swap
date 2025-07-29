@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/27 21:40:22 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/29 19:30:01 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,23 +30,11 @@ int					is_valid_number(char *str);
 int					is_int_range(char *str);
 int					add_to_stack(t_node **stack, int value);
 int					has_duplicates(t_node *stack);
-char				**join_and_split(char **argv, int count);
 void				free_args(char **args);
-// ===== UTILS =====
 int					ft_isdigit(int c);
 long				ft_atol(const char *str);
-int					ft_atoi(const char *str);
-char				*ft_strdup(const char *s);
-char				*ft_strjoin(const char *s1, const char *s2);
 char				**ft_split(const char *s, char c);
-int					ft_word_count(const char *s, char c);
-char				*ft_substr(const char *s, int start, int len);
-size_t				ft_strlcpy(char *dst, const char *src, size_t size);
-size_t				ft_strlen(const char *s);
-char				*ft_strcpy(char *dest, char *src);
-
-
-void	print_stack(t_node *stack);
-void	free_stack(t_node *stack);
+void				print_stack(t_node *stack);
+void				free_stack(t_node *stack);
 
 #endif

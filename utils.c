@@ -1,21 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils.c                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 14:28:15 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/27 21:15:22 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/29 19:50:08 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
-}
 
 long	ft_atol(const char *str)
 {
@@ -34,44 +30,79 @@ long	ft_atol(const char *str)
 	return (long_str * sign);
 }
 
-int	ft_atoi(const char *str)
+static int	count_words(const char *s, char c)
 {
-	return ((int)ft_atol(str));
+	int	count;
+	int	nw;
+
+	count = 0;
+	nw = 0;
+	while (*s)
+	{
+		if (*s != c && nw == 0)
+		{
+			count++;
+			nw = 1;
+		}
+		else if (*s == c)
+		{
+			nw = 0;
+		}
+		s++;
+	}
+	return (count);
 }
 
-char	*ft_strdup(const char *src)
+static char	*new_string(const char *s, char c)
 {
-	char	*dst;
+	char	*new;
+	size_t	len;
 
-	dst = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
-	if (dst == NULL)
+	len = 0;
+	while (s[len] && s[len] != c)
+		len++;
+	new = (char *)malloc((len + 1) * sizeof(char));
+	if (!new)
 		return (NULL);
-	ft_strcpy(dst, (char *)src);
-	return (dst);
+	ft_strlcpy(new, s, len + 1);
+	return (new);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+void	free_split(char **res, size_t i)
 {
-	size_t	len_s1;
-	size_t	len_s2;
-	char	*c;
+	while (i > 0)
+	{
+		i--;
+		free(res[i]);
+	}
+	free(res);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**res;
 	size_t	i;
-	size_t	j;
 
-	len_s1 = ft_strlen(s1);
-	len_s2 = ft_strlen(s2);
-	if (!s1 || !s2)
-		return (NULL);
-	c = (char *)malloc((len_s1 + len_s2 + 1) * (sizeof(char)));
-	if (!c)
-		return (NULL);
 	i = 0;
-	j = 0;
-	while (s1[i])
-		c[j++] = s1[i++];
-	i = 0;
-	while (s2[i])
-		c[j++] = s2[i++];
-	c[j] = '\0';
-	return (c);
+	if (!s)
+		return (NULL);
+	res = malloc((count_words(s, c) + 1) * sizeof(char *));
+	if (!res)
+		return (NULL);
+	while (*s)
+	{
+		if (*s != c)
+		{
+			res[i] = new_string(s, c);
+			if (!res[i])
+				return (free_split(res, i), NULL);
+			i++;
+			while (*s && *s != c)
+				s++;
+		}
+		else
+			s++;
+	}
+	res[i] = NULL;
+	return (res);
 }

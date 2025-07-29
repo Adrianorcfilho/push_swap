@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/27 21:39:51 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/29 20:11:48 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,6 @@ void	print_stack(t_node *stack)
 	{
 		printf("%d\n", stack->value);
 		stack = stack->next;
-	}
-}
-
-void	free_stack(t_node *stack)
-{
-	t_node	*tmp;
-
-	while (stack)
-	{
-		tmp = stack;
-		stack = stack->next;
-		free(tmp);
 	}
 }
 

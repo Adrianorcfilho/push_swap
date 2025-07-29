@@ -1,54 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libft_utils_2.c                                    :+:      :+:    :+:   */
+/*   free_error_exit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/27 21:11:48 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/27 21:46:01 by adrocha          ###   ########.fr       */
+/*   Created: 2025/07/29 19:52:13 by adrocha           #+#    #+#             */
+/*   Updated: 2025/07/29 20:17:33 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+void	free_args(char **args)
 {
 	int	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	while (args && args[i])
+		free(args[i++]);
+	free(args);
 }
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+void	free_stack(t_node **stack)
 {
-	size_t	i;
+	t_node	*tmp;
 
-	i = 0;
-	if (size != 0)
+	while (*stack)
 	{
-		while (i < size - 1 && src[i])
-		{
-			dst[i] = src[i];
-			i++;
-		}
-		dst[i] = '\0';
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
-	return (ft_strlen(src));
-}
-
-char	*ft_strcpy(char *dest, char *src)
-{
-	int	i;
-
-	i = 0;
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
 }
