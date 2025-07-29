@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:52:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/29 20:17:33 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/29 21:24:17 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,9 @@ void	free_stack(t_node **stack)
 		free(*stack);
 		*stack = tmp;
 	}
+}
+
+void	free_error_exit(char **stack, char **args)
+{
+	
 }
