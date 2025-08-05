@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/05 21:51:45 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/05 22:24:30 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,20 +96,19 @@ int	parse_arguments(t_node **stack, int argc, char **av)
 		args = ft_split(av[i], ' ');
 		if (!args)
 			free_error_exit(stack, NULL);
-		j = 0;
-		while (args[j])
+		j = -1;
+		while (args[++j])
 		{
 			if (!is_valid_number(args[j]) || !is_int_range(args[j]))
 				free_error_exit(stack, args);
 			value = ft_atol(args[j]);
 			if (!add_to_stack(stack, (int)value))
 				free_error_exit(stack, args);
-			j++;
 		}
 		free_args(args);
 		i++;
 	}
 	if (has_duplicates(*stack))
-		free_error_exit(stack, args);
+		free_error_exit(stack, NULL);
 	return (1);
 }

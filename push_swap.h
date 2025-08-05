@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/30 23:18:49 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/05 22:17:02 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,16 @@ typedef struct s_node
 	struct s_node	*next;
 }					t_node;
 
-int					parse_arguments(t_node **stack, int argc, char **argv);
+void				free_error_exit(t_node **stack, char **args);
+void				free_stack(t_node **stack);
+void				free_args(char **args);
 int					is_valid_number(char *str);
 int					is_int_range(char *str);
-int					add_to_stack(t_node **stack, int value);
 int					has_duplicates(t_node *stack);
-void				free_args(char **args);
-int					ft_isdigit(int c);
+int					add_to_stack(t_node **stack, int value);
+int					parse_arguments(t_node **stack, int argc, char **av);
 long				ft_atol(const char *str);
-char				**ft_split(const char *s, char c);
-void				print_stack(t_node *stack);
-void				free_stack(t_node *stack);
+void				free_split(char **res, size_t i);
+char				**ft_split(char const *s, char c);
 
 #endif

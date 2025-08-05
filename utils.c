@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 14:28:15 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/05 21:20:51 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/05 22:06:34 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ static char	*new_string(const char *s, char c)
 {
 	char	*new;
 	size_t	len;
+	size_t	i;
 
 	len = 0;
 	while (s[len] && s[len] != c)
@@ -63,7 +64,13 @@ static char	*new_string(const char *s, char c)
 	new = (char *)malloc((len + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
-	ft_strlcpy(new, s, len + 1); // fazer o strlcpy manual
+	i = 0;
+	while (i < len)
+	{
+		new[i] = s[i];
+		i++;
+	}
+	new[i] = '\0';
 	return (new);
 }
 

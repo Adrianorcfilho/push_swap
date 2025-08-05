@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:52:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/05 21:18:12 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/05 22:21:14 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@ void	free_args(char **args)
 	int	i;
 
 	i = 0;
-	while (args && args[i])
+	if (!args)
+		return ;
+	while (args[i])
 		free(args[i++]);
 	free(args);
 }
