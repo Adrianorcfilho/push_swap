@@ -6,7 +6,7 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/07/29 19:30:01 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/07/30 23:18:49 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 typedef struct s_node
 {
+	struct s_node	*prev;
 	int				value;
 	int				index;
 	struct s_node	*next;

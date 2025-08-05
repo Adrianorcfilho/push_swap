@@ -6,28 +6,27 @@
 /*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/27 14:28:15 by adrocha           #+#    #+#             */
-/*   Updated: 2025/07/29 19:50:08 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/05 21:20:51 by adrocha          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
 long	ft_atol(const char *str)
 {
-	long	long_str;
+	long	result;
 	int		sign;
 
-	long_str = 0;
+	result = 0;
 	sign = 1;
-	while (*str == 32 || (*str >= 9 && *str <= 13))
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
 		str++;
 	if (*str == '-' || *str == '+')
 		if (*str++ == '-')
 			sign = -1;
-	while (*str && ft_isdigit(*str))
-		long_str = long_str * 10 + (*str++ - '0');
-	return (long_str * sign);
+	while (*str && *str >= '0' && *str <= '9')
+		result = result * 10 + (*str++ - '0');
+	return (result * sign);
 }
 
 static int	count_words(const char *s, char c)
@@ -64,7 +63,7 @@ static char	*new_string(const char *s, char c)
 	new = (char *)malloc((len + 1) * sizeof(char));
 	if (!new)
 		return (NULL);
-	ft_strlcpy(new, s, len + 1);
+	ft_strlcpy(new, s, len + 1); // fazer o strlcpy manual
 	return (new);
 }
 
