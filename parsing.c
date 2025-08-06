@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/05 22:24:30 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/06 17:03:43 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int	add_to_stack(t_node **stack, int value)
 	return (1);
 }
 
-int	parse_arguments(t_node **stack, int argc, char **av)
+void	parse_arguments(t_node **stack, int argc, char **av)
 {
 	char	**args;
 	int		i;
@@ -110,5 +110,4 @@ int	parse_arguments(t_node **stack, int argc, char **av)
 	}
 	if (has_duplicates(*stack))
 		free_error_exit(stack, NULL);
-	return (1);
 }

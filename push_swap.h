@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/05 22:17:02 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/06 17:03:57 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int					is_valid_number(char *str);
 int					is_int_range(char *str);
 int					has_duplicates(t_node *stack);
 int					add_to_stack(t_node **stack, int value);
-int					parse_arguments(t_node **stack, int argc, char **av);
+void				parse_arguments(t_node **stack, int argc, char **av);
 long				ft_atol(const char *str);
 void				free_split(char **res, size_t i);
 char				**ft_split(char const *s, char c);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adrocha <adrocha@student.42.fr>            +#+  +:+       +#+        */
+/*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/05 22:37:30 by adrocha          ###   ########.fr       */
+/*   Updated: 2025/08/06 17:05:11 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,7 @@ int	main(int argc, char **argv)
 		printf("Usage: %s numbers...\n", argv[0]);
 		return (1);
 	}
-	if (!parse_arguments(&stack_a, argc, argv))
-	{
-		write (2, "Error\n", 6);
-		return (1);
-	}
+	parse_arguments(&stack_a, argc, argv);
 	print_stack(stack_a);
 	free_stack(&stack_a);
 	return (0);
