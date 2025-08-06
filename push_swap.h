@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/06 17:03:57 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:09:54 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef struct s_node
 	int				index;
 	struct s_node	*next;
 }					t_node;
+
+typedef struct s_stack
+{
+	struct s_node	*first;
+	struct s_node	*last;
+}					t_stack;
 
 void				free_error_exit(t_node **stack, char **args);
 void				free_stack(t_node **stack);

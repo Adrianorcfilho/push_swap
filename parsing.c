@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/06 17:03:43 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/06 19:29:25 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,30 +58,30 @@ int	has_duplicates(t_node *stack)
 	return (0);
 }
 
-int	add_to_stack(t_node **stack, int value)
-{
-	t_node	*head;
-	t_node	*last;
+// int	add_to_stack(t_stack **stack, int value)
+// {
+// 	t_node	*head;
+// 	t_node	*last;
 
-	head = malloc(sizeof(t_node));
-	if (!head)
-		return (0);
-	head->value = value;
-	head->index = -1;
-	head->next = NULL;
-	head->prev = NULL;
-	if (!*stack)
-		*stack = head;
-	else
-	{
-		last = *stack;
-		while (last->next)
-			last = last->next;
-		last->next = head;
-		head->prev = last;
-	}
-	return (1);
-}
+// 	head = malloc(sizeof(t_node));
+// 	if (!head)
+// 		return (0);
+// 	head->value = value;
+// 	head->index = -1;
+// 	head->next = NULL;
+// 	head->prev = NULL;
+// 	if (!*stack)
+// 		*stack = head;
+// 	else
+// 	{
+// 		last = *stack;
+// 		while (last->next)
+// 			last = last->next;
+// 		last->next = head;
+// 		head->prev = last;
+// 	}
+// 	return (1);
+// }
 
 void	parse_arguments(t_node **stack, int argc, char **av)
 {
