@@ -6,13 +6,13 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:51:06 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 19:34:39 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/11 21:54:48 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	push(t_stack *stack_a, t_stack *stack_b)
+static void	push(t_stack *stack_a, t_stack *stack_b)
 {
 	t_node	*temp;
 

@@ -6,7 +6,7 @@
 #    By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:52:46 by adrocha-          #+#    #+#              #
-#    Updated: 2025/08/07 17:51:16 by adrocha-         ###   ########.fr        #
+#    Updated: 2025/08/11 22:01:58 by adrocha-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,10 @@ parsing.c \
 free_error_exit.c \
 utils.c \
 stack.c \
+swap.c \
+push.c \
+rotate.c \
+reverse.c \
 	
 OBJ = $(SRC:.c=.o)
 

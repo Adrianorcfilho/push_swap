@@ -6,13 +6,13 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/11 18:14:34 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/11 22:00:50 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_valid_number(char *str)
+static int	is_valid_number(char *str)
 {
 	int	i;
 
@@ -30,7 +30,7 @@ int	is_valid_number(char *str)
 	return (1);
 }
 
-int	is_int_range(char *str)
+static int	is_int_range(char *str)
 {
 	long	c;
 
@@ -38,7 +38,7 @@ int	is_int_range(char *str)
 	return (c >= INT_MIN && c <= INT_MAX);
 }
 
-int	has_duplicates(t_node *stack)
+static int	has_duplicates(t_node *stack)
 {
 	t_node	*current;
 	t_node	*checker;
@@ -86,4 +86,3 @@ void	parse_arguments(t_stack *stack, int argc, char **av)
 	if (has_duplicates(stack->first))
 		free_error_exit(stack, NULL);
 }
-

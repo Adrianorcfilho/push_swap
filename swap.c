@@ -6,13 +6,13 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:50:33 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 21:34:30 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/11 21:55:10 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_stack *stack)
+static void	swap(t_stack *stack)
 {
 	int	temp;
 
