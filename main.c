@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 20:26:06 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/11 22:12:30 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	print_stack(t_stack *stack)
 {
-	t_node	*current = stack->first;
+	t_node	*current;
 
+	current = stack->first;
 	while (current)
 	{
 		printf("%d\n", current->value);
