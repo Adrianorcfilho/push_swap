@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/07 17:53:05 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/11 18:14:34 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,3 +86,4 @@ void	parse_arguments(t_stack *stack, int argc, char **av)
 	if (has_duplicates(stack->first))
 		free_error_exit(stack, NULL);
 }
+
