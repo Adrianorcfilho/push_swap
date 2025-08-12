@@ -6,7 +6,7 @@
 #    By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:52:46 by adrocha-          #+#    #+#              #
-#    Updated: 2025/08/11 22:01:58 by adrocha-         ###   ########.fr        #
+#    Updated: 2025/08/12 19:27:27 by adrocha-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,5 +43,8 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+r:
+	make && ./push_swap 1 2 3
 
 .PHONY: all clean fclean re
