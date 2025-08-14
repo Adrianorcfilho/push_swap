@@ -6,28 +6,49 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:34:51 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 21:55:03 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:46:33 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack *stack)
+static void rotate(t_stack *stack)
 {
-	int		temp;
-	t_node	*node;
+    t_node *first;
+    t_node *last;
 
-	if (stack->first == NULL || stack->first->next == NULL)
-		return ;
-	temp = stack->first->value;
-	node = stack->first;
-	while (node->next != NULL)
-	{
-		node->value = node->next->value;
-		node = node->next;
-	}
-	node->value = temp;
+    if (!stack || !stack->first || !stack->first->next)
+        return;
+
+    first = stack->first;
+    last = stack->last;
+
+    stack->first = first->next;
+    stack->first->prev = NULL;
+
+    last->next = first;
+    first->prev = last;
+    first->next = NULL;
+
+    stack->last = first;
 }
+
+// static void	rotate(t_stack *stack)
+// {
+// 	int		temp;
+// 	t_node	*node;
+
+// 	if (stack->first == NULL || stack->first->next == NULL)
+// 		return ;
+// 	temp = stack->first->value;
+// 	node = stack->first;
+// 	while (node->next != NULL)
+// 	{
+// 		node->value = node->next->value;
+// 		node = node->next;
+// 	}
+// 	node->value = temp;
+// }
 
 void	ra(t_stack *stack_a)
 {
