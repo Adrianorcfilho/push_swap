@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:35:30 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 21:54:56 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:58:07 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,19 @@
 
 static void	reverse(t_stack *stack)
 {
-	int		temp;
-	t_node	*node;
+	t_node	*last;
 
-	if (stack->first == NULL || stack->first->next == NULL)
+	if (!stack || !stack->first || !stack->first->next)
 		return ;
-	temp = stack->last->value;
-	node = stack->last;
-	while (node->prev != NULL)
-	{
-		node->value = node->prev->value;
-		node = node->prev;
-	}
-	node->value = temp;
+	last = stack->last;
+	// Remove o último nó
+	stack->last = last->prev;
+	stack->last->next = NULL;
+	// Coloca o último nó no início
+	last->prev = NULL;
+	last->next = stack->first;
+	stack->first->prev = last;
+	stack->first = last;
 }
 
 void	rra(t_stack *stack_a)

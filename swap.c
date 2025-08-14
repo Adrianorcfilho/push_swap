@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:50:33 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 21:55:10 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:54:19 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,27 @@
 
 static void	swap(t_stack *stack)
 {
-	int	temp;
+	t_node	*first;
+	t_node	*second;
 
-	if (stack == NULL || stack->first == NULL || stack->first->next == NULL)
+	if (!stack || !stack->first || !stack->first->next)
 		return ;
-	temp = stack->first->value;
-	stack->first->value = stack->first->next->value;
-	stack->first->next->value = temp;
+	first = stack->first;
+	second = first->next;
+	// Ajustar o ponteiro prev do segundo
+	second->prev = NULL;
+	// Ajustar o ponteiro next do primeiro
+	first->next = second->next;
+	if (second->next)
+		second->next->prev = first;
+	// Conectar segundo antes do primeiro
+	second->next = first;
+	first->prev = second;
+	// Atualizar início da stack
+	stack->first = second;
+	// Atualizar last se necessário
+	if (first->next == NULL)
+		stack->last = first;
 }
 
 void	sa(t_stack *stack_a)

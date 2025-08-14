@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:51:06 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/11 21:54:48 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:57:16 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,17 @@ static void	push(t_stack *stack_a, t_stack *stack_b)
 		return ;
 	temp = stack_a->first;
 	stack_a->first = temp->next;
-	if (stack_a->first != NULL)
+	if (stack_a->first)
 		stack_a->first->prev = NULL;
-	if (stack_a->first == NULL)
+	else
 		stack_a->last = NULL;
 	temp->next = stack_b->first;
 	temp->prev = NULL;
-	if (stack_b->first != NULL)
+	if (stack_b->first)
 		stack_b->first->prev = temp;
-	stack_b->first = temp;
-	if (stack_b->last == NULL)
+	else
 		stack_b->last = temp;
+	stack_b->first = temp;
 }
 
 void	pa(t_stack *stack_a, t_stack *stack_b)
