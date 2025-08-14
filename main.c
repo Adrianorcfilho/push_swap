@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/12 19:28:20 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 20:57:33 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	print_stack(t_stack *stack)
 	while (current)
 	{
 		printf("%d\n", current->value);
+		printf("%d\n", current->index);
 		current = current->next;
 	}
 }
@@ -36,33 +37,39 @@ int	main(int argc, char **argv)
 	}
 	stack_a = create_stack();
 	stack_b = create_stack();
-	if (!stack_a || !stack_a)
+	if (!stack_a || !stack_b)
 	{
 		write(2, "Error\n", 6);
 		return (1);
 	}
 	parse_arguments(stack_a, argc, argv);
-	parse_arguments(stack_b, argc, argv);
 	
 	printf("Stack A Original: \n");
 	print_stack(stack_a);
-	printf("Stack B Original: \n");
+	printf("Stack B Original: \n\n");
 	print_stack(stack_b);
+	
+	radix_sort(stack_a, stack_b);
 
+	printf("Stack A after radix: \n");
+	print_stack(stack_a);
+	printf("Stack B after radix: \n\n");
+	print_stack(stack_b);
+	
 	// printf("Stack A SA: \n");
 	// sa(stack_a);
 	// print_stack(stack_a);
 	
-	// printf("Stack B SB: \n");
-	// sb(stack_b);
+	// // printf("Stack B SB: \n");
+	// // sb(stack_b);
 	// print_stack(stack_b);
 
 
-	printf("Stack A SS: \n");
-	ss(stack_a, stack_b);
-	print_stack(stack_a);
-	printf("Stack B SS: \n");
-	print_stack(stack_b);
+	// printf("Stack A SS: \n");
+	// ss(stack_a, stack_b);
+	// print_stack(stack_a);
+	// printf("Stack B SS: \n");
+	// print_stack(stack_b);
 
 	// printf("Stack A PA: \n");
 	// pa(stack_a, stack_b);

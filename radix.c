@@ -6,34 +6,90 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 20:23:05 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/12 20:39:24 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/14 21:23:52 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// A: [40, -3, 7, 15, 0]
-// Ordenado: [-3, 0, 7, 15, 40]
-// Índices:  [ 0, 1, 2,  3,  4]
-// A indexada: [4, 0, 2, 3, 1]
+static int	list_size(t_stack *stack)
+{
+	int		count;
+	t_node	*current;
 
-// Repete tamanho de A vezes:
-//     pega o 1º elemento
-//     se bit i = 0 → pb
-//     se bit i = 1 → ra
-// Depois: pa até B ficar vazio
+	if (!stack)
+		return (0);
+	count = 0;
+	current = stack->first;
+	while (current)
+	{
+		count++;
+		current = current->next;
+	}
+	return (count);
+}
 
-// Resumo mental:
-//     Indexa os números.
-//     Calcula quantos bits o maior valor tem.
-//     Para cada bit:
-//         0 → pb
-//         1 → ra
-//     Devolve B → A (pa).
-//     Repetir até acabar os bits.
+static void	assign_index(t_stack *stack)
+{
+	int		i;
+	t_node	*current;
+	t_node	*check;
 
-// 1. Descobre maior número → quantos dígitos/bits vou olhar.
-// 2. Para cada dígito/bit:
-	// a) Separa conforme valor do dígito/bit.
-	// b) Junta de novo mantendo ordem.
-// 3. Repete até passar por todos os dígitos/bits.
+	current = stack->first;
+	while (current)
+	{
+		i = 0;
+		check = stack->first;
+		while (check)
+		{
+			if (check->value < current->value)
+				i++;
+			check = check->next;
+		}
+		current->index = i;
+		current = current->next;
+	}
+}
+
+static int	max_num(t_stack *stack)
+{
+	int	max_num;
+	int	max_bits;
+
+	max_num = list_size(stack) - 1;
+	max_bits = 0;
+	while (max_num > 0)
+	{
+		max_num = max_num / 2;
+		max_bits++;
+	}
+	return (max_bits);
+}
+
+void	radix_sort(t_stack *stack_a, t_stack *stack_b)
+{
+	int	max_bits;
+	int	size;
+	int	i;
+	int	j;
+
+	assign_index(stack_a);
+	max_bits = max_num(stack_a);
+	i = 0;
+	while (i < max_bits)
+	{
+		j = 0;
+		size = list_size(stack_a);
+		while (j < size)
+		{
+			if (((stack_a->first->index >> i) & 1) == 0)
+				pb(stack_a, stack_b);
+			else
+				ra(stack_a);
+			j++;
+		}
+		while (stack_b->first)
+			pa(stack_a, stack_b);
+		i++;
+	}
+}

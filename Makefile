@@ -6,7 +6,7 @@
 #    By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:52:46 by adrocha-          #+#    #+#              #
-#    Updated: 2025/08/12 19:27:27 by adrocha-         ###   ########.fr        #
+#    Updated: 2025/08/14 21:20:29 by adrocha-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ swap.c \
 push.c \
 rotate.c \
 reverse.c \
+radix.c \
 	
 OBJ = $(SRC:.c=.o)
 
@@ -45,6 +46,6 @@ fclean: clean
 re: fclean all
 
 r:
-	make && ./push_swap 1 2 3
+	make && ./push_swap 25 0 -30
 
 .PHONY: all clean fclean re
