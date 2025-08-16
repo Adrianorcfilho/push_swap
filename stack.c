@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:48:17 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/12 18:26:37 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/16 18:48:15 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,17 +26,7 @@ static t_node	*create_node(int value)
 	return (new_node);
 }
 
-t_stack	*create_stack(void)
-{
-	t_stack	*new_stack;
 
-	new_stack = malloc(sizeof(t_stack));
-	if (!new_stack)
-		return (NULL);
-	new_stack->first = NULL;
-	new_stack->last = NULL;
-	return (new_stack);
-}
 
 int	add_to_stack(t_stack *stack, int value)
 {

@@ -6,14 +6,14 @@
 #    By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:52:46 by adrocha-          #+#    #+#              #
-#    Updated: 2025/08/14 21:20:29 by adrocha-         ###   ########.fr        #
+#    Updated: 2025/08/16 18:52:28 by adrocha-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -g -Wall -Wextra -Werror 
 RM = rm -f
 
 SRC = main.c \
@@ -46,6 +46,6 @@ fclean: clean
 re: fclean all
 
 r:
-	make && ./push_swap 25 0 -30
+	make re && ./push_swap 25 0 -30
 
 .PHONY: all clean fclean re

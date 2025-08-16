@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:35:30 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/14 21:58:07 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/16 18:54:06 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ static void	reverse(t_stack *stack)
 	if (!stack || !stack->first || !stack->first->next)
 		return ;
 	last = stack->last;
-	// Remove o último nó
 	stack->last = last->prev;
 	stack->last->next = NULL;
-	// Coloca o último nó no início
 	last->prev = NULL;
 	last->next = stack->first;
 	stack->first->prev = last;

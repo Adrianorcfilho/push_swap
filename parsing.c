@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/11 22:00:50 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/16 18:56:53 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,24 +38,43 @@ static int	is_int_range(char *str)
 	return (c >= INT_MIN && c <= INT_MAX);
 }
 
-static int	has_duplicates(t_node *stack)
+static void	has_duplicates(t_stack *stack)
 {
 	t_node	*current;
 	t_node	*checker;
 
-	current = stack;
+	current = stack->first;
 	while (current)
 	{
 		checker = current->next;
 		while (checker)
 		{
 			if (current->value == checker->value)
-				return (1);
+				free_error_exit(stack, NULL);
 			checker = checker->next;
 		}
 		current = current->next;
 	}
-	return (0);
+}
+
+static void	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || !stack->first)
+	{
+		free_stack(stack);
+		exit(0);
+	}
+	current = stack->first;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return ;
+		current = current->next;
+	}
+	free_stack(stack);
+	exit(0);
 }
 
 void	parse_arguments(t_stack *stack, int argc, char **av)
@@ -69,7 +88,7 @@ void	parse_arguments(t_stack *stack, int argc, char **av)
 	while (i < argc)
 	{
 		args = ft_split(av[i], ' ');
-		if (!args)
+		if (!args || args[0] == NULL)
 			free_error_exit(stack, NULL);
 		j = -1;
 		while (args[++j])
@@ -83,6 +102,6 @@ void	parse_arguments(t_stack *stack, int argc, char **av)
 		free_args(args);
 		i++;
 	}
-	if (has_duplicates(stack->first))
-		free_error_exit(stack, NULL);
+	has_duplicates(stack);
+	is_sorted(stack);
 }
