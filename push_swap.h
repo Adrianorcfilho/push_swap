@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 18:17:14 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/16 21:29:49 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ void				rr(t_stack *stack_a, t_stack *stack_b);
 void				rra(t_stack *stack_a);
 void				rrb(t_stack *stack_b);
 void				rrr(t_stack *stack_a, t_stack *stack_b);
+int					list_size(t_stack *stack);
 void				radix_sort(t_stack *stack_a, t_stack *stack_b);
+void				radix_of_3(t_stack *stack);
+void				radix_of_4(t_stack *stack_a, t_stack *stack_b);
+void				radix_of_5(t_stack *stack_a, t_stack *stack_b);
+void				radix_cases(t_stack *stack_a, t_stack *stack_b);
 
 #endif

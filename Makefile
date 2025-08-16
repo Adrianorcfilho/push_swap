@@ -6,7 +6,7 @@
 #    By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/25 21:52:46 by adrocha-          #+#    #+#              #
-#    Updated: 2025/08/16 18:52:28 by adrocha-         ###   ########.fr        #
+#    Updated: 2025/08/16 21:29:12 by adrocha-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,8 @@ push.c \
 rotate.c \
 reverse.c \
 radix.c \
+3_to_5_cases.c \
+
 	
 OBJ = $(SRC:.c=.o)
 
