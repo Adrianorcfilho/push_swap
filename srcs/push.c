@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 18:51:06 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/14 21:57:16 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:54:08 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	push(t_stack *stack_a, t_stack *stack_b)
 {

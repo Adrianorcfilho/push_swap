@@ -6,7 +6,7 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:53:35 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:29:49 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:49:33 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void				parse_arguments(t_stack *stack, int argc, char **av);
 long				ft_atol(const char *str);
 void				free_split(char **res, size_t i);
 char				**ft_split(char const *s, char c);
-void				print_stack(t_stack *stack);
 void				sa(t_stack *stack_a);
 void				sb(t_stack *stack_b);
 void				ss(t_stack *stack_a, t_stack *stack_b);

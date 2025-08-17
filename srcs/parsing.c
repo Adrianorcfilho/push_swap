@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:47:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/16 18:56:53 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:22:35 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	is_valid_number(char *str)
 {
@@ -89,7 +89,7 @@ void	parse_arguments(t_stack *stack, int argc, char **av)
 	{
 		args = ft_split(av[i], ' ');
 		if (!args || args[0] == NULL)
-			free_error_exit(stack, NULL);
+			free_error_exit(stack, args);
 		j = -1;
 		while (args[++j])
 		{

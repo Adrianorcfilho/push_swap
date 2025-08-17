@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/25 21:54:59 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:57:32 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:53:54 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	radix_cases(t_stack *stack_a, t_stack *stack_b)
 {

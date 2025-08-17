@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/12 20:23:05 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:49:24 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:54:14 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	list_size(t_stack *stack)
 {
@@ -59,7 +59,7 @@ static int	max_num(t_stack *stack)
 	max_num = list_size(stack) - 1;
 	max_bits = 0;
 	while (max_num > 0)
-	{	
+	{
 		max_num = max_num / 2;
 		max_bits++;
 	}
@@ -78,14 +78,15 @@ void	radix_sort(t_stack *stack_a, t_stack *stack_b)
 	i = 0;
 	while (i < max_bits)
 	{
-		j = -1;
+		j = 0;
 		size = list_size(stack_a);
-		while (j++ < size)
+		while (j < size)
 		{
-			if (((stack_a->first->index >> i) & 1) == 0)
+			if (!((stack_a->first->index >> i) & 1))
 				pb(stack_a, stack_b);
 			else
 				ra(stack_a);
+			j++;
 		}
 		while (stack_b->first)
 			pa(stack_a, stack_b);

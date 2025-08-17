@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 19:52:13 by adrocha           #+#    #+#             */
-/*   Updated: 2025/08/16 18:50:46 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:53:46 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	free_args(char **args)
 {

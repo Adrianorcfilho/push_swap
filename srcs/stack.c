@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/07 16:48:17 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 18:48:15 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:24:08 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_node	*create_node(int value)
 {
@@ -25,8 +25,6 @@ static t_node	*create_node(int value)
 	new_node->prev = NULL;
 	return (new_node);
 }
-
-
 
 int	add_to_stack(t_stack *stack, int value)
 {

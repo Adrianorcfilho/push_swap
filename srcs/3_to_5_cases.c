@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/16 21:01:18 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 21:32:38 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 17:27:54 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static int	find_min_position(t_stack *stack)
 {
@@ -38,12 +38,12 @@ static int	find_min_position(t_stack *stack)
 
 static void	move_to_top(t_stack *stack, int pos, int size)
 {
-	if (pos <= size / 2) // mais perto do topo
+	if (pos <= size / 2)
 	{
 		while (pos-- > 0)
 			ra(stack);
 	}
-	else // mais perto do fundo
+	else
 	{
 		pos = size - pos;
 		while (pos-- > 0)
@@ -60,18 +60,18 @@ void	radix_of_3(t_stack *stack)
 	a = stack->first->value;
 	b = stack->first->next->value;
 	c = stack->first->next->next->value;
-	if (a < b && b > c && a < c) // 1 3 2
+	if (a < b && b > c && a < c)
 	{
 		rra(stack);
 		sa(stack);
 	}
-	else if (a > b && b < c && a < c) // 2 1 3
+	else if (a > b && b < c && a < c)
 		sa(stack);
-	else if (a < b && b > c && a > c) // 2 3 1
+	else if (a < b && b > c && a > c)
 		rra(stack);
-	else if (a > b && b < c && a > c) // 3 1 2
+	else if (a > b && b < c && a > c)
 		ra(stack);
-	else if (a > b && b > c) // 3 2 1
+	else if (a > b && b > c)
 	{
 		sa(stack);
 		rra(stack);
@@ -82,11 +82,11 @@ void	radix_of_4(t_stack *stack_a, t_stack *stack_b)
 {
 	int	pos_min;
 
-	pos_min = find_min_position(stack_a);  // posição do menor valor (0-index)
-	move_to_top(stack_a, pos_min, 4); // leva menor para o topo
-	pb(stack_a, stack_b);             // joga menor para B
-	radix_of_3(stack_a);              // ordena os 3 restantes
-	pa(stack_a, stack_b);             // devolve o menor
+	pos_min = find_min_position(stack_a);
+	move_to_top(stack_a, pos_min, 4);
+	pb(stack_a, stack_b);
+	radix_of_3(stack_a);
+	pa(stack_a, stack_b);
 }
 
 void	radix_of_5(t_stack *stack_a, t_stack *stack_b)
@@ -95,13 +95,13 @@ void	radix_of_5(t_stack *stack_a, t_stack *stack_b)
 
 	pos_min = find_min_position(stack_a);
 	move_to_top(stack_a, pos_min, 5);
-	pb(stack_a, stack_b); // menor vai para B
+	pb(stack_a, stack_b);
 	pos_min = find_min_position(stack_a);
 	move_to_top(stack_a, pos_min, 4);
-	pb(stack_a, stack_b); // segundo menor vai para B
-	radix_of_3(stack_a); // ordena os 3 restantes
+	pb(stack_a, stack_b);
+	radix_of_3(stack_a);
 	if (stack_b->first->value < stack_b->first->next->value)
-		sa(stack_b); // coloca maior em cima
-	pa(stack_a, stack_b); // devolve maior
-	pa(stack_a, stack_b); // devolve menor
+		sa(stack_b);
+	pa(stack_a, stack_b);
+	pa(stack_a, stack_b);
 }

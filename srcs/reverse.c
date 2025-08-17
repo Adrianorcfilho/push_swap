@@ -6,11 +6,11 @@
 /*   By: adrocha- <adrocha-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/11 19:35:30 by adrocha-          #+#    #+#             */
-/*   Updated: 2025/08/16 18:54:06 by adrocha-         ###   ########.fr       */
+/*   Updated: 2025/08/17 16:54:16 by adrocha-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	reverse(t_stack *stack)
 {
